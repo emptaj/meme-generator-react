@@ -24,3 +24,25 @@ code {
     border-radius: 5px;
     padding: 10px;
 }
+
+.meme-generate-button {
+    width: 477px;
+    height: 40px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    text-align: center;
+    letter-spacing: -0.1em;
+    color: #FFFFFF;
+    margin: auto;
+}
+
+.meme-generator {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
