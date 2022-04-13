@@ -1,8 +1,11 @@
 import logo from '../logo.svg';
+import Header from '../components/Header'
 
 function App() {
   return (
-    <p>MEME GENERATOR!</p>
+    <>
+      <Header />
+    </>
   );
 }
 
