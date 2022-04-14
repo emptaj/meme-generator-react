@@ -76,6 +76,13 @@ code {
 .meme-generator {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     padding: 30px;
+}
+
+.meme-image {
+    /* width: 477px;
+    height: 268px; */
+    border-radius: 2px;
 }
