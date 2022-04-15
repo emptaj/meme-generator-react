@@ -1,22 +1,19 @@
 import { useState, useEffect } from "react";
 import memesData
     from "./utils/memesData";
+
 const MemeGenerator = () => {
-    const [imageUrl, setImageUrl] = useState(null);
-    const [imageWidth, setImageWidth] = useState(null);
-    const [imageHeight, setImageHeight] = useState(null);
+    const [imageObject, setImageObject] = useState({});
 
-
-    const getRandomImageUrl = () => {
+    const getRandomImage = () => {
         const urls = memesData.data.memes
         const randIndex = Math.floor(Math.random() * urls.length)
-        const randomUrl = urls[randIndex]
-        setImageWidth(randomUrl.width)
-        setImageHeight(randomUrl.height)
-        setImageUrl(randomUrl.url)
+        const randObject = urls[randIndex]
+
+        setImageObject(randObject)
     }
 
-    useEffect(getRandomImageUrl, [])
+    useEffect(getRandomImage, [])
 
     return (
         <div className="meme-generator">
@@ -27,12 +24,13 @@ const MemeGenerator = () => {
             </form>
             <img className="meme-image"
                 style={{
-                    width: `${imageWidth}px`,
-                    height: `${imageHeight}px`
+                    width: `${imageObject.width}px`,
+                    height: `${imageObject.height}px`
                 }}
-                src={imageUrl} />
+                src={imageObject.url}
+                alt="oups.." />
             <button className="meme-generate-button"
-                onClick={getRandomImageUrl}>Get a new image</button>
+                onClick={getRandomImage}>Get a new image</button>
         </div>
     );
 }
