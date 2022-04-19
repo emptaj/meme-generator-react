@@ -4,11 +4,16 @@ import memesData
 
 const MemeGenerator = () => {
     const [imageObject, setImageObject] = useState({});
+    const [meme, setMeme] = useState({
+        "topText": "",
+        "bottomText": ""
+    })
+
+    const [memes, setMemes] = useState(memesData.data.memes)
 
     const getRandomImage = () => {
-        const urls = memesData.data.memes
-        const randIndex = Math.floor(Math.random() * urls.length)
-        const randObject = urls[randIndex]
+        const randIndex = Math.floor(Math.random() * memes.length)
+        const randObject = memes[randIndex]
 
         setImageObject(randObject)
     }
