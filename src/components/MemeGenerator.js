@@ -1,32 +1,45 @@
 import { useState, useEffect } from "react";
+import MemeForm from "./MemeForm";
 import memesData
     from "./utils/memesData";
 
+
 const MemeGenerator = () => {
     const [imageObject, setImageObject] = useState({});
-    const [meme, setMeme] = useState({
-        "topText": "",
-        "bottomText": ""
+    const [memeData, setMeme] = useState({
+        firstLine: "",
+        secondLine: ""
     })
 
-    const [memes, setMemes] = useState(memesData.data.memes)
 
     const getRandomImage = () => {
-        const randIndex = Math.floor(Math.random() * memes.length)
-        const randObject = memes[randIndex]
+        const randIndex = Math.floor(Math.random() * memesData.data.memes.length)
+        const randObject = memesData.data.memes[randIndex]
 
         setImageObject(randObject)
+    }
+
+
+    const handleFormChange = (event) => {
+        const { name, value } = event.target
+
+        setMeme((prevMeme) => {
+            return {
+                ...prevMeme,
+                [name]: value
+            }
+        })
+
     }
 
     useEffect(getRandomImage, [])
 
     return (
         <div className="meme-generator">
-            <form className="form-generator">
-                <input type="text" name="first-line"
-                    defaultValue="Shut up" />
-                <input type="text" name="second-line" defaultValue="and take my money" />
-            </form>
+            <MemeForm
+                firstLineValue={memeData.firstLine}
+                secondLineValue={memeData.secondLine}
+                onChangeFunc={handleFormChange} />
             <img className="meme-image"
                 style={{
                     width: `${imageObject.width}px`,
