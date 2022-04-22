@@ -6,12 +6,12 @@ const MemeForm = (props) => {
         <form className="form-generator">
             <input
                 type="text"
-                name="firstLine"
+                name="topText"
                 value={firstLineValue}
                 onChange={event => onChangeFunc(event)} />
 
             <input type="text"
-                name="secondLine"
+                name="bottomText"
                 value={secondLineValue}
                 onChange={event => onChangeFunc(event)}
             />

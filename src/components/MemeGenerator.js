@@ -11,8 +11,8 @@ const MemeGenerator = () => {
         url: "http://i.imgflip.com/1bij.jpg"
     });
     const [memeData, setMeme] = useState({
-        firstLine: "",
-        secondLine: ""
+        topText: "",
+        bottomText: ""
     })
 
 
@@ -55,14 +55,19 @@ const MemeGenerator = () => {
                 firstLineValue={memeData.firstLine}
                 secondLineValue={memeData.secondLine}
                 onChangeFunc={handleFormChange} />
-            {imageObject && <img className="meme-image"
-                style={{
-                    width: `${imageObject.width}px`,
-                    height: `${imageObject.height}px`
-                }}
-                src={imageObject.url}
-                alt="oups.." />
-            }
+
+            <div className="meme">
+                {imageObject && <img className="meme-image"
+                    style={{
+                        width: `${imageObject.width}px`,
+                        height: `${imageObject.height}px`
+                    }}
+                    src={imageObject.url}
+                    alt="oups.." />
+                }
+                <h2 className="meme-text top">{memeData.topText}</h2>
+                <h2 className="meme-text bottom">{memeData.bottomText}</h2>
+            </div>
             <button className="meme-generate-button"
                 onClick={getRandomImage}>Get a new image</button>
         </div>
